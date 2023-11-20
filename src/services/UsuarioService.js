@@ -10,12 +10,12 @@ export default class CubosService{
     }
 
     getPerfilUser(){
-        let url=Global.urlApi + "api/manage/login";
+        let url=Global.urlApi + "api/manage/perfilusuario";
         let token=JSON.parse(localStorage.getItem("token"))
         let config = {
             headers: { Authorization: `Bearer ${token}` }
         };
-        axios.get(url, config).then(response => {
+        return axios.get(url, config).then(response => {
             return response.data;
         })
     }
