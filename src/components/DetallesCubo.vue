@@ -10,9 +10,9 @@
         <p class="card-text">Color: {{cubo.color}}</p>
       </div>
     </div>
-    <div v-if="statusComentarios">
-        <h2>Comentarios</h2>
+    <div v-if="comentarios.length>0">
         <div>
+            <h2>Comentarios</h2>
             <div v-for="coment in comentarios" :key="coment">{{coment.comentario}}</div>
         </div>
     </div>
@@ -22,6 +22,7 @@
 <script>
 import CubosService from "./../services/CubosService";
 const cubosService = new CubosService();
+
 export default {
     name:"DetallesCubo",
     data(){
@@ -44,7 +45,7 @@ export default {
                 this.comentarios=result;
                 this.statusComentarios=true
             })
-        }
+        },
     },
     mounted(){
         this.loadCubo();

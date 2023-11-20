@@ -37,4 +37,15 @@ export default class CubosService {
             return result.data.response
         })
     }
+
+    realizarPedido(id){
+        let url = Global.urlApi + "api/compra/insertarpedido/" + id;
+        let token = JSON.parse(localStorage.getItem("token"))
+        let config = {
+            headers: { Authorization: `Bearer ${token}` }
+        };
+        return axios.post(url,"",config).then(response => {
+            return response.data;
+        })
+    }
 }

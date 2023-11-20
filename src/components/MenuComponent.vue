@@ -23,6 +23,12 @@
           <li class="nav-item">
             <router-link class="nav-link" to="/login">Iniciar Sesión</router-link>
           </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/registro">Registrarse</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/" @click="cerrarSesion()">Cerrar sesion</router-link>
+          </li>
           <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
@@ -31,7 +37,7 @@
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              Desplegable
+              Marcas
             </a>
             <ul class="dropdown-menu" v-if="status">
               <li v-for="marca in marcas" :key="marca">
@@ -63,6 +69,10 @@ export default {
         this.status=true
       });
     },
+    cerrarSesion(){
+      localStorage.removeItem("token");
+      alert("Sesion cerrada")
+    }
   },
   mounted() {
     this.loadMarcas();

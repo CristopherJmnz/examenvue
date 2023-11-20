@@ -7,6 +7,7 @@
     <ul v-if="statusCompras">
       <li v-for="pedido in pedidos" :key="pedido">IdPedido: {{pedido.idPedido}} , Fecha: {{pedido.fechaPedido}}</li>
     </ul>
+    <router-link to="/comprar" class="btn btn-danger">Realizar compra</router-link>
   </div>
 </template>
 
