@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeComponent from './components/HomeComponent.vue'
 import CubosComponent from './components/CubosComponent.vue'
 import DetallesCubo from './components/DetallesCubo.vue'
+import LoginComponent from './components/LoginComponent.vue'
+import PerfilComponent from './components/PerfilComponent.vue'
 
 const myRoutes = [
     {
@@ -12,6 +14,12 @@ const myRoutes = [
     },
     {
         path: "/detalles/:id", component: DetallesCubo
+    },
+    {
+        path: "/login", component: LoginComponent
+    },
+    {
+        path: "/perfil", component: PerfilComponent
     },
 ]
 
