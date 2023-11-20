@@ -28,7 +28,7 @@ export default {
     loadCubos(){
       cubosService.getCubosPorMarca(this.$route.params.marca).then(result=>{
         this.cubos=result;
-        this.status=true;console.log(result);
+        this.status=true;
       })
     }
   },

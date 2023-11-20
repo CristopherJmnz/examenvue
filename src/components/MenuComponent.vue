@@ -21,7 +21,7 @@
             >
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/create">Crear coche</router-link>
+            <router-link class="nav-link" to="/">Opcion</router-link>
           </li>
           <li class="nav-item dropdown">
             <a

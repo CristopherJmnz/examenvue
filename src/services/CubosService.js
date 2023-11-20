@@ -20,4 +20,18 @@ export default class CubosService{
             return response.data
         })
     }
+
+    findCuboById(id){
+        let url=Global.urlApi + "api/cubos/" + id;
+        return axios.get(url).then(response=>{
+            return response.data
+        })
+    }
+
+    getComentariosCubo(id){
+        let url=Global.urlApi + "api/comentarioscubo/getcomentarioscubo/" + id;
+        return axios.get(url).then(response=>{
+            return response.data
+        })
+    }
 }
