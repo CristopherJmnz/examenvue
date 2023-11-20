@@ -4,6 +4,7 @@ import CubosComponent from './components/CubosComponent.vue'
 import DetallesCubo from './components/DetallesCubo.vue'
 import LoginComponent from './components/LoginComponent.vue'
 import PerfilComponent from './components/PerfilComponent.vue'
+import RegistroComponent from './components/RegistroComponent.vue'
 
 const myRoutes = [
     {
@@ -20,6 +21,9 @@ const myRoutes = [
     },
     {
         path: "/perfil", component: PerfilComponent
+    },
+    {
+        path: "/registro", component: RegistroComponent
     },
 ]
 

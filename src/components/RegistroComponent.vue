@@ -1,6 +1,14 @@
 <template>
   <div>
-    <form v-on:submit.prevent="login()" class="w-50 mx-auto mt-5">
+    <form v-on:submit.prevent="registro()" class="w-50 mx-auto mt-5">
+      <label>Nombre</label>
+      <input
+        class="form-control"
+        type="text"
+        name="nombre"
+        id="nombre"
+        v-model="user.nombre"
+      />
       <label>Email</label>
       <input
         class="form-control"
@@ -12,13 +20,12 @@
       <label>Contraseña</label>
       <input
         class="form-control"
-        type="password"
-        name="password"
-        id="password"
-        v-model="user.password"
+        type="pass"
+        name="pass"
+        id="pass"
+        v-model="user.pass"
       />
       <button type="submit" class="btn btn-primary mt-3">Iniciar Sesión</button>
-      <router-link to="/registro">No tienes una cuenta? Registrate</router-link>
     </form>
   </div>
 </template>
@@ -27,21 +34,23 @@
 import UsuarioService from "./../services/UsuarioService";
 const usuarioService = new UsuarioService();
 export default {
-  name: "LoginComponent",
+  name: "RegistroComponent",
   data() {
     return {
       user: {
+        idUsuario: 0,
+        pass: "",
         email: "",
-        password: "",
+        nombre: "",
       },
     };
   },
   methods: {
-    login() {
-      usuarioService.login(this.user).then((result) => {
-        let token = JSON.stringify(result);
-        localStorage.setItem("token", token);
-        this.$router.push("/perfil");
+    registro() {
+      usuarioService.registroUser(this.user).then((result) => {
+        console.log(result);
+        alert("Registro correcto")
+        this.$router.push("/login")
       });
     },
   },

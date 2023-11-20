@@ -3,6 +3,10 @@
     <h1>Hola, {{user.nombre}}</h1>
     <h2>Detalles</h2>
     <p>Email: {{user.email}}</p>
+    <button @click="historialCompras()" class="btn btn-primary">Ver Historial de Compras</button>
+    <ul v-if="statusCompras">
+      <li v-for="pedido in pedidos" :key="pedido">IdPedido: {{pedido.idPedido}} , Fecha: {{pedido.fechaPedido}}</li>
+    </ul>
   </div>
 </template>
 
@@ -14,7 +18,9 @@ export default {
   data() {
     return {
       user: null,
-      status:false
+      status:false,
+      pedidos:[],
+      statusCompras:false
     };
   },
   methods: {
@@ -24,6 +30,12 @@ export default {
         this.status=true;
       });
     },
+    historialCompras(){
+      usuarioService.getCompras().then(result=>{
+        this.pedidos=result;
+        this.statusCompras=true;
+      })
+    }
   },
   mounted(){
     this.findUser();
