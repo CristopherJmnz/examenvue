@@ -54,6 +54,12 @@ export default {
       });
     },
   },
+  mounted(){
+    if(localStorage.getItem("token")){
+      this.$router.push("/perfil")
+      alert("Ya hay una sesion iniciada")
+    }
+  }
 };
 </script>
 
